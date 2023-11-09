@@ -5,33 +5,29 @@
     <meta property="og:image" content="https://www.flaticon.com/premium-icon/icons/svg/2626/2626281.svg" itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s</title>
-    <link rel="stylesheet" type='text/css' href="https://drive.google.com/uc?export=view&id=1pVLG4gZy7jdow3sO-wFS06aP_A9QX0O6">
+    <title>Your Title</title>
+    <link rel="stylesheet" type="text/css" href="https://drive.google.com/uc?export=view&id=1pVLG4gZy7jdow3sO-wFS06aP_A9QX0O6">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
-    <!-- <link rel="stylesheet" href="./style.css"> -->
-
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css">
 </head>
 
-<body class='cyber'>
+<body>
     <header>
         <div class="toogle"></div>
         <div id="file-name" class="cyber">
-            %s
+            Your Video Title
         </div>
     </header>
 
     <div class="container">
-        <a href=%s>
-            <button class="cybr-btn">
-                Download
-                <span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
-                <span aria-hidden class="cybr-btn__tag">_%s</span>
-            </button>
-        </a>
+        <div class="video-container">
+            <video id="streaming-video" controls playsinline>
+                <source src="YOUR_VIDEO_URL_HERE" type="video/mp4">
+            </video>
+        </div>
     </div>
-    
+
     <footer>
         <span id="fork-text">Fork me on</span>
         <span>
@@ -41,15 +37,36 @@
         </span>
     </footer>
 
-	<script>
+    <script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
+    <script>
+        const controls = [
+            'play-large',
+            'rewind',
+            'play', 
+            'fast-forward', 
+            'progress', 
+            'current-time',
+            'duration',
+            'mute',
+            'volume',
+            'captions',
+            'settings',
+            'pip',
+            'airplay',
+            'download',
+            'fullscreen'
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = Plyr.setup('#streaming-video', { controls });
+        });
+
         const body = document.querySelector('body');
-        const title = document.querySelector('#file-name');
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
         toogle.onclick = () => {
-            body.classList.toggle('dark')
-            footer.classList.toggle('dark')
-            title.classList.toggle('dark')
+            body.classList.toggle('dark');
+            footer.classList.toggle('dark');
         }
     </script>
 </body>
